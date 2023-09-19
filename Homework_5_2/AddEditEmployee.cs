@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Homework_5_2
 {
-    public partial class Form1 : Form
+    public partial class AddEditEmployee : Form
     {
-        public Form1()
+        public AddEditEmployee()
         {
             InitializeComponent();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
