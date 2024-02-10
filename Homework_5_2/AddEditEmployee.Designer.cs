@@ -49,6 +49,8 @@ namespace Homework_5_2
             this.rtbComments = new System.Windows.Forms.RichTextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.dtpHireDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpDismissDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lbId
@@ -134,9 +136,10 @@ namespace Homework_5_2
             // 
             // tbHireDate
             // 
-            this.tbHireDate.Location = new System.Drawing.Point(128, 158);
+            this.tbHireDate.Location = new System.Drawing.Point(128, 157);
             this.tbHireDate.Name = "tbHireDate";
-            this.tbHireDate.Size = new System.Drawing.Size(172, 20);
+            this.tbHireDate.ReadOnly = true;
+            this.tbHireDate.Size = new System.Drawing.Size(140, 20);
             this.tbHireDate.TabIndex = 11;
             // 
             // lbHireDate
@@ -150,9 +153,10 @@ namespace Homework_5_2
             // 
             // tbDismissDate
             // 
-            this.tbDismissDate.Location = new System.Drawing.Point(128, 184);
+            this.tbDismissDate.Location = new System.Drawing.Point(128, 181);
             this.tbDismissDate.Name = "tbDismissDate";
-            this.tbDismissDate.Size = new System.Drawing.Size(172, 20);
+            this.tbDismissDate.ReadOnly = true;
+            this.tbDismissDate.Size = new System.Drawing.Size(140, 20);
             this.tbDismissDate.TabIndex = 13;
             // 
             // lbDismissDate
@@ -199,7 +203,7 @@ namespace Homework_5_2
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.LightCoral;
+            this.btnCancel.BackColor = System.Drawing.Color.PeachPuff;
             this.btnCancel.Location = new System.Drawing.Point(128, 347);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(172, 23);
@@ -219,12 +223,37 @@ namespace Homework_5_2
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // dtpHireDate
+            // 
+            this.dtpHireDate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpHireDate.CustomFormat = " ";
+            this.dtpHireDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHireDate.Location = new System.Drawing.Point(129, 157);
+            this.dtpHireDate.Name = "dtpHireDate";
+            this.dtpHireDate.Size = new System.Drawing.Size(171, 20);
+            this.dtpHireDate.TabIndex = 21;
+            this.dtpHireDate.ValueChanged += new System.EventHandler(this.dtpHireDate_ValueChanged);
+            // 
+            // dtpDismissDate
+            // 
+            this.dtpDismissDate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpDismissDate.CustomFormat = " ";
+            this.dtpDismissDate.Enabled = false;
+            this.dtpDismissDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDismissDate.Location = new System.Drawing.Point(128, 181);
+            this.dtpDismissDate.Name = "dtpDismissDate";
+            this.dtpDismissDate.Size = new System.Drawing.Size(172, 20);
+            this.dtpDismissDate.TabIndex = 22;
+            this.dtpDismissDate.ValueChanged += new System.EventHandler(this.dtpDismissDate_ValueChanged);
+            // 
             // AddEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(352, 422);
+            this.ClientSize = new System.Drawing.Size(355, 415);
+            this.Controls.Add(this.tbHireDate);
+            this.Controls.Add(this.dtpHireDate);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.rtbComments);
@@ -233,7 +262,6 @@ namespace Homework_5_2
             this.Controls.Add(this.lbVacationDaysNumber);
             this.Controls.Add(this.tbDismissDate);
             this.Controls.Add(this.lbDismissDate);
-            this.Controls.Add(this.tbHireDate);
             this.Controls.Add(this.lbHireDate);
             this.Controls.Add(this.tbSalary);
             this.Controls.Add(this.lbSalary);
@@ -245,8 +273,12 @@ namespace Homework_5_2
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbId);
             this.Controls.Add(this.lbId);
+            this.Controls.Add(this.dtpDismissDate);
+            this.MaximumSize = new System.Drawing.Size(371, 454);
+            this.MinimumSize = new System.Drawing.Size(371, 454);
             this.Name = "AddEditEmployee";
-            this.Text = "AddEditEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Dodawanie nowego pracownika";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +306,7 @@ namespace Homework_5_2
         private System.Windows.Forms.RichTextBox rtbComments;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.DateTimePicker dtpHireDate;
+        private System.Windows.Forms.DateTimePicker dtpDismissDate;
     }
 }

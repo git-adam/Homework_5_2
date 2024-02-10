@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Homework_5_2
 {
     static class Program
     {
+        public static string FilePath =
+            Path.Combine(Environment.CurrentDirectory, "employees.txt");
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
