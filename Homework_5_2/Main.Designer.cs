@@ -35,7 +35,7 @@ namespace Homework_5_2
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvEmployeesList = new System.Windows.Forms.DataGridView();
             this.cmbSortingCategory = new System.Windows.Forms.ComboBox();
-            this.cmbFilter = new System.Windows.Forms.ComboBox();
+            this.cmbStatuses = new System.Windows.Forms.ComboBox();
             this.lbSort = new System.Windows.Forms.Label();
             this.ckbAreDesc = new System.Windows.Forms.CheckBox();
             this.btnSort = new System.Windows.Forms.Button();
@@ -116,13 +116,13 @@ namespace Homework_5_2
             this.cmbSortingCategory.Size = new System.Drawing.Size(136, 21);
             this.cmbSortingCategory.TabIndex = 5;
             // 
-            // cmbFilter
+            // cmbStatuses
             // 
-            this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Location = new System.Drawing.Point(576, 25);
-            this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(142, 21);
-            this.cmbFilter.TabIndex = 6;
+            this.cmbStatuses.FormattingEnabled = true;
+            this.cmbStatuses.Location = new System.Drawing.Point(576, 25);
+            this.cmbStatuses.Name = "cmbStatuses";
+            this.cmbStatuses.Size = new System.Drawing.Size(142, 21);
+            this.cmbStatuses.TabIndex = 6;
             // 
             // lbSort
             // 
@@ -164,6 +164,7 @@ namespace Homework_5_2
             this.btnFilter.Size = new System.Drawing.Size(231, 52);
             this.btnFilter.TabIndex = 11;
             this.btnFilter.UseVisualStyleBackColor = false;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // lbFilter
             // 
@@ -182,7 +183,7 @@ namespace Homework_5_2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
             this.ClientSize = new System.Drawing.Size(938, 553);
-            this.Controls.Add(this.cmbFilter);
+            this.Controls.Add(this.cmbStatuses);
             this.Controls.Add(this.lbFilter);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.ckbAreDesc);
@@ -212,7 +213,7 @@ namespace Homework_5_2
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridView dgvEmployeesList;
         private System.Windows.Forms.ComboBox cmbSortingCategory;
-        private System.Windows.Forms.ComboBox cmbFilter;
+        private System.Windows.Forms.ComboBox cmbStatuses;
         private System.Windows.Forms.Label lbSort;
         private System.Windows.Forms.CheckBox ckbAreDesc;
         private System.Windows.Forms.Button btnSort;

@@ -51,6 +51,8 @@ namespace Homework_5_2
             this.btnConfirm = new System.Windows.Forms.Button();
             this.dtpHireDate = new System.Windows.Forms.DateTimePicker();
             this.dtpDismissDate = new System.Windows.Forms.DateTimePicker();
+            this.cmbStatuses = new System.Windows.Forms.ComboBox();
+            this.lbStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbId
@@ -136,7 +138,7 @@ namespace Homework_5_2
             // 
             // tbHireDate
             // 
-            this.tbHireDate.Location = new System.Drawing.Point(128, 157);
+            this.tbHireDate.Location = new System.Drawing.Point(128, 158);
             this.tbHireDate.Name = "tbHireDate";
             this.tbHireDate.ReadOnly = true;
             this.tbHireDate.Size = new System.Drawing.Size(140, 20);
@@ -153,7 +155,7 @@ namespace Homework_5_2
             // 
             // tbDismissDate
             // 
-            this.tbDismissDate.Location = new System.Drawing.Point(128, 181);
+            this.tbDismissDate.Location = new System.Drawing.Point(128, 185);
             this.tbDismissDate.Name = "tbDismissDate";
             this.tbDismissDate.ReadOnly = true;
             this.tbDismissDate.Size = new System.Drawing.Size(140, 20);
@@ -162,7 +164,7 @@ namespace Homework_5_2
             // lbDismissDate
             // 
             this.lbDismissDate.AutoSize = true;
-            this.lbDismissDate.Location = new System.Drawing.Point(32, 187);
+            this.lbDismissDate.Location = new System.Drawing.Point(32, 188);
             this.lbDismissDate.Name = "lbDismissDate";
             this.lbDismissDate.Size = new System.Drawing.Size(85, 13);
             this.lbDismissDate.TabIndex = 12;
@@ -187,7 +189,7 @@ namespace Homework_5_2
             // lbComments
             // 
             this.lbComments.AutoSize = true;
-            this.lbComments.Location = new System.Drawing.Point(32, 240);
+            this.lbComments.Location = new System.Drawing.Point(32, 273);
             this.lbComments.Name = "lbComments";
             this.lbComments.Size = new System.Drawing.Size(40, 13);
             this.lbComments.TabIndex = 16;
@@ -195,16 +197,16 @@ namespace Homework_5_2
             // 
             // rtbComments
             // 
-            this.rtbComments.Location = new System.Drawing.Point(128, 240);
+            this.rtbComments.Location = new System.Drawing.Point(128, 270);
             this.rtbComments.Name = "rtbComments";
-            this.rtbComments.Size = new System.Drawing.Size(172, 96);
+            this.rtbComments.Size = new System.Drawing.Size(172, 102);
             this.rtbComments.TabIndex = 18;
             this.rtbComments.Text = "";
             // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.PeachPuff;
-            this.btnCancel.Location = new System.Drawing.Point(128, 347);
+            this.btnCancel.Location = new System.Drawing.Point(128, 378);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(172, 23);
             this.btnCancel.TabIndex = 19;
@@ -215,7 +217,7 @@ namespace Homework_5_2
             // btnConfirm
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnConfirm.Location = new System.Drawing.Point(128, 369);
+            this.btnConfirm.Location = new System.Drawing.Point(128, 400);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(172, 23);
             this.btnConfirm.TabIndex = 20;
@@ -228,7 +230,7 @@ namespace Homework_5_2
             this.dtpHireDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpHireDate.CustomFormat = " ";
             this.dtpHireDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHireDate.Location = new System.Drawing.Point(129, 157);
+            this.dtpHireDate.Location = new System.Drawing.Point(129, 158);
             this.dtpHireDate.Name = "dtpHireDate";
             this.dtpHireDate.Size = new System.Drawing.Size(171, 20);
             this.dtpHireDate.TabIndex = 21;
@@ -240,18 +242,37 @@ namespace Homework_5_2
             this.dtpDismissDate.CustomFormat = " ";
             this.dtpDismissDate.Enabled = false;
             this.dtpDismissDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDismissDate.Location = new System.Drawing.Point(128, 181);
+            this.dtpDismissDate.Location = new System.Drawing.Point(128, 185);
             this.dtpDismissDate.Name = "dtpDismissDate";
             this.dtpDismissDate.Size = new System.Drawing.Size(172, 20);
             this.dtpDismissDate.TabIndex = 22;
             this.dtpDismissDate.ValueChanged += new System.EventHandler(this.dtpDismissDate_ValueChanged);
+            // 
+            // cmbStatuses
+            // 
+            this.cmbStatuses.FormattingEnabled = true;
+            this.cmbStatuses.Location = new System.Drawing.Point(128, 239);
+            this.cmbStatuses.Name = "cmbStatuses";
+            this.cmbStatuses.Size = new System.Drawing.Size(172, 21);
+            this.cmbStatuses.TabIndex = 23;
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.Location = new System.Drawing.Point(32, 244);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(40, 13);
+            this.lbStatus.TabIndex = 24;
+            this.lbStatus.Text = "Status:";
             // 
             // AddEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(355, 415);
+            this.ClientSize = new System.Drawing.Size(355, 445);
+            this.Controls.Add(this.lbStatus);
+            this.Controls.Add(this.cmbStatuses);
             this.Controls.Add(this.tbHireDate);
             this.Controls.Add(this.dtpHireDate);
             this.Controls.Add(this.btnConfirm);
@@ -274,8 +295,8 @@ namespace Homework_5_2
             this.Controls.Add(this.tbId);
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.dtpDismissDate);
-            this.MaximumSize = new System.Drawing.Size(371, 454);
-            this.MinimumSize = new System.Drawing.Size(371, 454);
+            this.MaximumSize = new System.Drawing.Size(371, 484);
+            this.MinimumSize = new System.Drawing.Size(371, 484);
             this.Name = "AddEditEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodawanie nowego pracownika";
@@ -308,5 +329,7 @@ namespace Homework_5_2
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.DateTimePicker dtpHireDate;
         private System.Windows.Forms.DateTimePicker dtpDismissDate;
+        private System.Windows.Forms.ComboBox cmbStatuses;
+        private System.Windows.Forms.Label lbStatus;
     }
 }

@@ -11,6 +11,7 @@ namespace Homework_5_2
         private FileHelper<List<Employee>> _fileHelper = new FileHelper<List<Employee>>(Program.FilePath);
 
         private List<Employee> _employees;
+        private List<Status> _statuses;
 
         private List<SortingCategory> _sortingCategory = new List<SortingCategory>()
         {
@@ -40,11 +41,20 @@ namespace Homework_5_2
         {
             InitializeComponent();
             InitSortingCategoryCombobox();
+            _statuses = StatusesHelper.GetStatuses("Brak");
+            InitStatusesCombobox();
             RefreshEmployeesList();
             SetColumnsHeader();
 
             if (IsMaximize)
                 WindowState = FormWindowState.Maximized;
+        }
+
+        private void InitStatusesCombobox()
+        {
+            cmbStatuses.DataSource = _statuses;
+            cmbStatuses.DisplayMember = "Name";
+            cmbStatuses.ValueMember = "Id";
         }
 
         private void RefreshEmployeesList()
@@ -60,43 +70,63 @@ namespace Homework_5_2
 
         private void SortEmployeesListByCategory(int categoryId)
         {
+            var selectedStatusId = (cmbStatuses.SelectedItem as Status).Id;
+
             switch (categoryId)
             {
                 case 0:
                     _employees = ckbAreDesc.Checked == true ?
                         _employees.OrderByDescending(x => x.Id).ToList() : _employees.OrderBy(x => x.Id).ToList();
+                    if (selectedStatusId != 0)
+                        _employees = _employees.Where(x => x.StatusId == selectedStatusId).ToList();
                     break;
                 case 1:
                     _employees = ckbAreDesc.Checked == true ?
                         _employees.OrderByDescending(x => x.FirstName).ToList() : _employees.OrderBy(x => x.FirstName).ToList();
+                    if (selectedStatusId != 0)
+                        _employees = _employees.Where(x => x.StatusId == selectedStatusId).ToList();
                     break;
                 case 2:
                     _employees = ckbAreDesc.Checked == true ?
                         _employees.OrderByDescending(x => x.LastName).ToList() : _employees.OrderBy(x => x.LastName).ToList();
+                    if (selectedStatusId != 0)
+                        _employees = _employees.Where(x => x.StatusId == selectedStatusId).ToList();
                     break;
                 case 3:
                     _employees = ckbAreDesc.Checked == true ?
                         _employees.OrderByDescending(x => x.Number).ToList() : _employees.OrderBy(x => x.Number).ToList();
+                    if (selectedStatusId != 0)
+                        _employees = _employees.Where(x => x.StatusId == selectedStatusId).ToList();
                     break;
                 case 4:
                     _employees = ckbAreDesc.Checked == true ?
                         _employees.OrderByDescending(x => x.Salary).ToList() : _employees.OrderBy(x => x.Salary).ToList();
+                    if (selectedStatusId != 0)
+                        _employees = _employees.Where(x => x.StatusId == selectedStatusId).ToList();
                     break;
                 case 5:
                     _employees = ckbAreDesc.Checked == true ?
                         _employees.OrderByDescending(x => x.HireDate).ToList() : _employees.OrderBy(x => x.HireDate).ToList();
+                    if (selectedStatusId != 0)
+                        _employees = _employees.Where(x => x.StatusId == selectedStatusId).ToList();
                     break;
                 case 6:
                     _employees = ckbAreDesc.Checked == true ?
                         _employees.OrderByDescending(x => x.DismissDate).ToList() : _employees.OrderBy(x => x.DismissDate).ToList();
+                    if (selectedStatusId != 0)
+                        _employees = _employees.Where(x => x.StatusId == selectedStatusId).ToList();
                     break;
                 case 7:
                     _employees = ckbAreDesc.Checked == true ?
                         _employees.OrderByDescending(x => x.VacationDaysNumber).ToList() : _employees.OrderBy(x => x.VacationDaysNumber).ToList();
+                    if (selectedStatusId != 0)
+                        _employees = _employees.Where(x => x.StatusId == selectedStatusId).ToList();
                     break;
                 case 8:
                     _employees = ckbAreDesc.Checked == true ?
                         _employees.OrderByDescending(x => x.Comments).ToList() : _employees.OrderBy(x => x.Comments).ToList();
+                    if (selectedStatusId != 0)
+                        _employees = _employees.Where(x => x.StatusId == selectedStatusId).ToList();
                     break;
                 default:
                     break;
@@ -190,6 +220,7 @@ namespace Homework_5_2
             if(employee.HireDate < DateTime.Now)
             {
                 employee.DismissDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                employee.StatusId = 4;
                 MessageBox.Show("Pracownik został zwolniony!");
             }
             else
@@ -210,6 +241,11 @@ namespace Homework_5_2
         }
 
         private void btnSort_Click(object sender, EventArgs e)
+        {
+            RefreshEmployeesList();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
         {
             RefreshEmployeesList();
         }

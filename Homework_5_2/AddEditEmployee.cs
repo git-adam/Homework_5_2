@@ -11,14 +11,24 @@ namespace Homework_5_2
         private FileHelper<List<Employee>> _fileHelper = new FileHelper<List<Employee>>(Program.FilePath);
         private int _employeeId;
         private Employee _employee;
+        private List<Status> _statuses;
         public AddEditEmployee(int id = 0)
         {
             InitializeComponent();
+            _statuses = StatusesHelper.GetStatuses("Brak");
+            InitStatusesCombobox();
             tbFirstName.Select();
             _employeeId = id;
 
             GetEmployeeData();
 
+        }
+
+        private void InitStatusesCombobox()
+        {
+            cmbStatuses.DataSource = _statuses;
+            cmbStatuses.DisplayMember = "Name";
+            cmbStatuses.ValueMember = "Id";
         }
 
         private void GetEmployeeData()
@@ -53,6 +63,7 @@ namespace Homework_5_2
             tbDismissDate.Text = _employee.DismissDate != null ? Convert.ToDateTime(_employee.DismissDate).ToShortDateString() : _employee.DismissDate.ToString();
             tbVacationDaysNumber.Text = _employee.VacationDaysNumber.ToString();
             rtbComments.Text = _employee.Comments;
+            cmbStatuses.SelectedItem = _statuses.FirstOrDefault(x => x.Id == _employee.StatusId);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -99,6 +110,7 @@ namespace Homework_5_2
             //    DismissDate = DateTime.TryParse(tbDismissDate.Text, out DateTime dismissDate) && dismissDate >= hireDate ? dismissDate : (DateTime?)null,
             //    VacationDaysNumber = int.TryParse(tbVacationDaysNumber.Text, out int vacationDaysNumber) && vacationDaysNumber >= 0 ? vacationDaysNumber : 0,
             //    Comments = rtbComments.Text,
+            //    StatusId = (cmbStatuses.SelectedItem as Status).Id,
             //};
 
             var employee = new Employee
@@ -112,6 +124,7 @@ namespace Homework_5_2
                 DismissDate = GetDismissDate(),
                 VacationDaysNumber = GetVacationDaysNumber(0),
                 Comments = rtbComments.Text,
+                StatusId = (cmbStatuses.SelectedItem as Status).Id,
             };
 
             employees.Add(employee);

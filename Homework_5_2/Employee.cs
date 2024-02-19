@@ -13,7 +13,7 @@ namespace Homework_5_2
         public DateTime? DismissDate { get; set; }
         public int VacationDaysNumber { get; set; }
         public string Comments { get; set; }
+        public int StatusId { get; set; }
 
-        //Pozycja w firmie, adres
     }
 }

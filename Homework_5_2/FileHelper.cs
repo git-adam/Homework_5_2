@@ -19,6 +19,9 @@ namespace Homework_5_2
                 serializer.Serialize(streamWriter, employees);
                 streamWriter.Close();
             }
+
+            //var json = JsonConvert.SerializeObject(employees);//serializacja
+            //File.WriteAllText($"{_filePath}6XXX", json);//zapis do pliku
         }
 
         public T DeserializeFromFile()
@@ -38,6 +41,15 @@ namespace Homework_5_2
                 streamReader.Close();
                 return employees;
             }
+
+            //if (!File.Exists($"{_filePath}6XXX"))
+            //{
+            //    return new T();
+            //}
+
+            //var json = File.ReadAllText($"{_filePath}6XXX");//odczyt z pliku
+            //return JsonConvert.DeserializeObject<T>(json);//deserializacja
+
         }
     }
 }

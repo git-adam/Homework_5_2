@@ -82,6 +82,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortingCategory.cs" />
+    <Compile Include="Status.cs" />
+    <Compile Include="StatusesHelper.cs" />
     <EmbeddedResource Include="AddEditEmployee.resx">
       <DependentUpon>AddEditEmployee.cs</DependentUpon>
     </EmbeddedResource>

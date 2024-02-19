@@ -6,8 +6,8 @@ namespace Homework_5_2
 {
     static class Program
     {
-        public static string FilePath =
-            Path.Combine(Environment.CurrentDirectory, "employees.txt");
+        public static string FilePath = Path.Combine(Environment.CurrentDirectory, "employees.txt");
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
